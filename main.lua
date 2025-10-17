@@ -1,8 +1,5 @@
 local cloneref = cloneref or function(obj) return obj end
 repeat task.wait() until game:IsLoaded()
-sendMessage('-net')
-task.wait(1)
-sendMessage('-netless')
 local playersService = cloneref(game:GetService('Players'))
 local chatService = cloneref(game:GetService('TextChatService'))
 local runService = cloneref(game:GetService('RunService'))
@@ -39,6 +36,7 @@ local function sendMessage(message)
         allowMessages = true
     end)
 end
+
 sendMessage('-net')
 task.wait(1)
 sendMessage('-netless')
