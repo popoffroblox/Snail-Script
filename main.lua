@@ -7,9 +7,6 @@ local coreGui = cloneref(game:GetService('CoreGui'))
 local starterGui = cloneref(game:GetService('StarterGui'))
 local lplr = playersService.LocalPlayer
 workspace.Camera.CameraSubject = lplr.Character.Humanoid
-sendMessage('-net')
-task.wait(1)
-sendMessage('-netless')
 local function selfdestruct()
     while task.wait() do end
 end
