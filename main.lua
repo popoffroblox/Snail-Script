@@ -119,7 +119,7 @@ end
 
 task.spawn(function()
     while task.wait(5) do
-            moveForward()
+            handlePos = handlePos + Vector3.new(-0.05, -0.05, -0.05)
     end
 end)
 sendMessage('-net')
