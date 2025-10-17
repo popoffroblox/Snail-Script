@@ -43,12 +43,10 @@ local function sendMessage(message)
         allowMessages = true
     end)
 end
-
-sendMessage('-net')
-task.wait(1)
-sendMessage('-netless')
 if accessoryId == '' then selfdestruct() end
 sendMessage('-rs')
+task.wait(2)
+sendMessage('-netless')
 task.wait(2)
 if lplr.Character:FindFirstChildWhichIsA('Accessory') then
     sendMessage('-ch')
@@ -58,6 +56,8 @@ if lplr.Character.Humanoid.RigType ~= Enum.HumanoidRigType.R6 then
     sendMessage('-r6')
     task.wait(2)
 end
+sendMessage('-net')
+task.wait(1.5)
 sendMessage('-gh ' .. accessoryId)
 task.wait(2)
 
