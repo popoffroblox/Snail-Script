@@ -35,6 +35,8 @@ local function sendMessage(message)
 end
 
 sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 if accessoryId == '' then selfdestruct() end
 sendMessage('-rs')
 task.wait(2)
@@ -90,7 +92,6 @@ end)
 accessory.Parent = workspace
 sendMessage('-net')
 task.wait(1)
-sendMessage('-net')
 wait(1)
 accessory.Parent = lplr.Character
 
@@ -117,12 +118,11 @@ end
 
 task.spawn(function()
     while task.wait(5) do
-            handlePos = handlePos + Vector3.new(-0.05, -0.05, -0.05)
+            moveForward()
     end
 end)
 sendMessage('-net')
 task.wait(1)
-sendMessage('-net')
 local tools = {
     ['Forward'] = function()
         for _ = 1, 30 do
