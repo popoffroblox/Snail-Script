@@ -1,6 +1,8 @@
 local cloneref = cloneref or function(obj) return obj end
 repeat task.wait() until game:IsLoaded()
-
+sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 local playersService = cloneref(game:GetService('Players'))
 local chatService = cloneref(game:GetService('TextChatService'))
 local runService = cloneref(game:GetService('RunService'))
@@ -8,7 +10,9 @@ local coreGui = cloneref(game:GetService('CoreGui'))
 local starterGui = cloneref(game:GetService('StarterGui'))
 local lplr = playersService.LocalPlayer
 workspace.Camera.CameraSubject = lplr.Character.Humanoid
-
+sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 local function selfdestruct()
     while task.wait() do end
 end
@@ -35,7 +39,9 @@ local function sendMessage(message)
         allowMessages = true
     end)
 end
-
+sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 if accessoryId == '' then selfdestruct() end
 sendMessage('-rs')
 task.wait(2)
@@ -89,7 +95,9 @@ runService.Heartbeat:Connect(function(delta)
 end)
 --lplr.Character:BreakJoints()
 accessory.Parent = workspace
-
+sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 wait(1)
 accessory.Parent = lplr.Character
 
@@ -119,7 +127,9 @@ task.spawn(function()
             moveForward()
     end
 end)
-
+sendMessage('-net')
+task.wait(1)
+sendMessage('-netless')
 local tools = {
     ['Forward'] = function()
         for _ = 1, 30 do
