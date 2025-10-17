@@ -1,3 +1,4 @@
+-- thanks for orion (theo_theobenzo) for I guess, 'helping'?
 local cloneref = cloneref or function(obj) return obj end
 repeat task.wait() until game:IsLoaded()
 local playersService = cloneref(game:GetService('Players'))
@@ -46,8 +47,6 @@ end
 if accessoryId == '' then selfdestruct() end
 sendMessage('-rs')
 task.wait(2)
-sendMessage('-netless')
-task.wait(2)
 if lplr.Character:FindFirstChildWhichIsA('Accessory') then
     sendMessage('-ch')
     task.wait(2)
@@ -56,11 +55,10 @@ if lplr.Character.Humanoid.RigType ~= Enum.HumanoidRigType.R6 then
     sendMessage('-r6')
     task.wait(2)
 end
-sendMessage('-net')
-task.wait(1.5)
 sendMessage('-gh ' .. accessoryId)
+task.wait(0.3)
+sendMessage('-net')
 task.wait(2)
-
 chatService.BubbleChatConfiguration.MaxBubbles = 3
 local accessory = lplr.Character:FindFirstChildWhichIsA('Accessory') or workspace:FindFirstChildWhichIsA('Accessory')
 task.spawn(function()
@@ -70,8 +68,6 @@ end)
 
 if not accessory or not accessory:FindFirstChild('Handle') then selfdestruct() end
 local handle = accessory.Handle
-sendMessage('-net')
-task.wait(2)
 repeat
     local weld = handle:FindFirstChildWhichIsA('Weld')
     if weld then weld:Destroy() end
@@ -99,11 +95,6 @@ runService.Heartbeat:Connect(function(delta)
     cam.Position = handlePos + Vector3.new(0, 2, 0)
 end)
 --lplr.Character:BreakJoints()
-accessory.Parent = workspace
-sendMessage('-net')
-task.wait(1)
-wait(1)
-accessory.Parent = lplr.Character
 
 local function moveRight()
     handlePos = handlePos + Vector3.new(-0.2, 0, 0)
@@ -131,8 +122,7 @@ task.spawn(function()
             handlePos = handlePos + Vector3.new(0.05, 0, 0)
     end
 end)
-sendMessage('-net')
-task.wait(1)
+
 local tools = {
     ['Forward'] = function()
         for _ = 1, 30 do
