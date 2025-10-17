@@ -6,6 +6,16 @@ local runService = cloneref(game:GetService('RunService'))
 local coreGui = cloneref(game:GetService('CoreGui'))
 local starterGui = cloneref(game:GetService('StarterGui'))
 local lplr = playersService.LocalPlayer
+for _, tool in ipairs(lplr.Backpack:GetChildren()) do
+    if tool:IsA('Tool') then
+        tool:Destroy()
+    end
+end
+for _, tool in ipairs(lplr.Character:GetChildren()) do
+    if tool:IsA('Tool') then
+        tool:Destroy()
+    end
+end
 workspace.Camera.CameraSubject = lplr.Character.Humanoid
 local function selfdestruct()
     while task.wait() do end
